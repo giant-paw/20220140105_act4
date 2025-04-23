@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tugas_navi/home_page.dart';
 
 class DetailOrderPage extends StatelessWidget {
   // String disini
@@ -35,9 +34,27 @@ class DetailOrderPage extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
+                /*
+
+                CATATAN :
+                kalau mau pakai Route '/homePage' memakai PUSHNAMEANDREMOVEUNTIL
+
+
                 Navigator.pushAndRemoveUntil(
                   context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
+                  
+                  // MaterialPageRoute(builder: (context) => HomePage()),
+ 
+                  '/homePage',
+ 
+                  (route) => false,
+                );
+                
+                */
+
+                Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  '/homePage',
                   (route) => false,
                 );
               },
