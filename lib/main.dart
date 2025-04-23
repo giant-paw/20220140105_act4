@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tugas_navi/home_page.dart';
 import 'package:tugas_navi/login_page.dart';
 import 'package:tugas_navi/register_page.dart';
 
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/login': (context) => const LoginPage(),
         '/register': (context) => const RegisterPage(),
+        '/homePage': (context) => const HomePage(),
       },
       
     );
