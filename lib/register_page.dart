@@ -10,6 +10,33 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Form(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Register'),
+
+              TextFormField(
+                decoration: const InputDecoration(labelText: 'Email'),
+              ),
+
+              TextFormField(
+                decoration: const InputDecoration(labelText: 'Password'),
+              ),
+
+              ElevatedButton(onPressed: () {}, child: Text('Register')),
+
+              TextButton(
+                onPressed: () {},
+                child: Text('Sudah Memiliki Akun? Login Sekarang!!'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
