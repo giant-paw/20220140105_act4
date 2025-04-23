@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tugas_navi/detail_order_page.dart';
 
 class OrderPage extends StatefulWidget {
   const OrderPage({super.key});
@@ -17,9 +18,11 @@ class _OrderPageState extends State<OrderPage> {
   
   @override
   Widget build(BuildContext context) {
+    final _formkey = GlobalKey<FormState>();
     return Scaffold(
       appBar: AppBar(title: Text('Order Page')),
       body: Form(
+        key: _formkey,
         child: Column(
           spacing: 16,
           children: [
@@ -71,7 +74,23 @@ class _OrderPageState extends State<OrderPage> {
               },
             ),
 
-            ElevatedButton(onPressed: () {},
+            ElevatedButton(onPressed: () {
+              if(_formkey.currentState!.validate()) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                      (context) => DetailOrderPage(
+                        makanan: makananController.text,
+                        jmlMakanan: jmlMakananController.text,
+                        minuman: minumanController.text,
+                        jmlMinuman: jmlMinumanController.text,
+                        totalHarga: totalHarga,
+                      ))
+                  );
+              }
+              return null;
+            },
              child: Text('Pesan Sekarang'))
           ],
         ),
