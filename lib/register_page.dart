@@ -52,7 +52,9 @@ class _RegisterPageState extends State<RegisterPage> {
                 child: Text('Register')),
 
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context, '/login');
+                },
                 child: Text('Sudah Memiliki Akun? Login Sekarang!!'),
               ),
             ],
