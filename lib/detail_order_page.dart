@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tugas_navi/home_page.dart';
 
 class DetailOrderPage extends StatelessWidget {
   // String disini
@@ -30,6 +31,18 @@ class DetailOrderPage extends StatelessWidget {
             Text('Jumlah Makanan: $jmlMakanan'),
             Text('Pesanan Minuman: $minuman'),
             Text('Jumlah Makanan: $jmlMinuman'),
+
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePage()),
+                  (route) => false,
+                );
+              },
+              child: Text('Pesan Sekarang'),
+            ),
           ],
         ),
       ),
