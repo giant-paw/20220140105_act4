@@ -14,7 +14,17 @@ class _OrderPageState extends State<OrderPage> {
   final TextEditingController minumanController = TextEditingController();
   final TextEditingController jmlMakananController = TextEditingController();
   final TextEditingController jmlMinumanController = TextEditingController();
-  final int totalHarga = 0;
+  int totalHarga = 0;
+
+  // logika menghitung total harga
+  void hitungTotalHarga() {
+    int jmlMakanan = int.tryParse(jmlMakananController.text) ?? 0;
+    int jmlMinuman = int.tryParse(jmlMinumanController.text) ?? 0;
+
+    setState(() {
+      totalHarga = (jmlMakanan * 12000) + (jmlMinuman * 2500);
+    });
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -76,6 +86,7 @@ class _OrderPageState extends State<OrderPage> {
 
             ElevatedButton(onPressed: () {
               if(_formkey.currentState!.validate()) {
+                hitungTotalHarga();
                 Navigator.push(
                   context,
                   MaterialPageRoute(
