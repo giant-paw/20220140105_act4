@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tugas_navi/order_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -19,8 +20,15 @@ class _HomePageState extends State<HomePage> {
           children: [
             Text('Selamat Datang'),
 
-            ElevatedButton(onPressed: () {}, 
-            child: Text('Pesan Sekarang')),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const OrderPage()),
+                );
+              },
+              child: Text('Pesan Sekarang'),
+            ),
           ],
         ),
       ),
