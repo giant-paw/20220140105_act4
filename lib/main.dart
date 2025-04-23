@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tugas_navi/login_page.dart';
+import 'package:tugas_navi/register_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/login',
       routes: {
         '/login': (context) => const LoginPage(),
+        '/register': (context) => const RegisterPage(),
       },
       
     );
