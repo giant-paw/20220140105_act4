@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tugas_navi/home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -8,16 +9,24 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    final _formkey = GlobalKey<FormState>();
+
     return Scaffold(
       body: Form(
+        key: _formkey,
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextFormField(
+                // memakai controller
+                controller: emailController,
                 decoration: const InputDecoration(labelText: 'Email'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -28,6 +37,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
 
               TextFormField(
+                controller: passwordController,
                 decoration: const InputDecoration(labelText: 'Password'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -37,7 +47,14 @@ class _LoginPageState extends State<LoginPage> {
                 },
               ),
 
-              ElevatedButton(onPressed: () {}, child: Text("Login")),
+              ElevatedButton(onPressed: () {
+                if(_formkey.currentState!.validate()) {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => const HomePage()),
+                     );
+                }
+              }, child: Text("Login")),
 
               TextButton(
                 onPressed: () {},
